@@ -1,0 +1,93 @@
+# .pre-commit-config.yaml
+# Merged from ../pre-commit/R.pre-commit-config.yaml
+#                ../pre-commit/py.pre-commit-config.yaml
+#
+# Covers: R source files (.R), Python files (.py)
+#
+# Prerequisites:
+#   R packages : precommit, styler, lintr
+#                Rscript -e 'install.packages(c("precommit","styler","lintr"))'
+#   System     : python3, uv, pre-commit
+#
+# Usage:
+#   pre-commit run --all-files
+#   pre-commit autoupdate
+
+repos:
+
+  # ── Common file-quality gates ──────────────────────────────────────────────
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+    -   id: check-ast
+    -   id: check-merge-conflict
+    -   id: check-case-conflict
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+    -   id: mixed-line-ending
+    -   id: check-added-large-files
+        exclude: '^testdata/'
+    -   id: detect-private-key
+    -   id: debug-statements
+    -   id: check-executables-have-shebangs
+        files: '\.(py|r)$'
+    -   id: check-shebang-scripts-are-executable
+        files: '\.(py|r)$'
+
+  # ── Pre-commit manifest validator ──────────────────────────────────────────
+-   repo: https://github.com/pre-commit/pre-commit
+    rev: v4.6.0
+    hooks:
+    -   id: validate_manifest
+
+  # ── Git hygiene ────────────────────────────────────────────────────────────
+-   repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+    -   id: forbid-binary
+    -   id: git-check
+
+  # ── R code quality ─────────────────────────────────────────────────────────
+-   repo: https://github.com/lorenzwalthert/precommit
+    rev: v0.4.3.9026
+    hooks:
+    -   id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style]
+        files: '\.(R|r)$'
+    -   id: parsable-R
+        files: '\.(R|r)$'
+    -   id: lintr
+        files: '\.(R|r)$'
+    -   id: renv-lockfile-validate
+    -   id: no-browser-statement
+        files: '\.(R|r)$'
+    -   id: no-debug-statement
+        files: '\.(R|r)$'
+    -   id: no-print-statement
+        files: '\.(R|r)$'
+
+  # ── Bump hook revisions to latest ─────────────────────────────────────────
+  # Disabled: pre-commit-update mutates files on every `pre-commit run` (not
+  # just `autoupdate`) and reflows this file's entire YAML formatting.
+  # -   repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
+  #     rev: v0.9.0
+  #     hooks:
+  #     -   id: pre-commit-update
+
+  # ── Local policy hooks ─────────────────────────────────────────────────────
+
+  # rev pinned to Marc-commits/pre-commit-hooks tag v0.1.0
+-   repo: https://github.com/Marc-commits/pre-commit-hooks
+    rev: v0.1.0
+    hooks:
+    -   id: r-metadata
+        exclude: ^$
+    -   id: py-shebang
+        exclude: ^$
+    -   id: py-marimo-check
+    -   id: py-help-version
+        exclude: ^$
+    -   id: py-metadata
+        exclude: ^$
+    -   id: readme-no-local-paths
+    -   id: readme-url-check
