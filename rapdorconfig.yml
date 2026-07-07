@@ -16,7 +16,7 @@
 
 RUN_DIR: "RUNS/LightnoTCforRAPDOR" # The Directory to store results in
 CountFile: "initialData/LightOnlyNoUTRorAS.csv" # The counts file to use
-gff: "initialData/Synsp.gff3"
+gff: "initialData/Nostocsp.gff3"  # Path to the GFF3 annotation file for your organism
 tag2Name: "initialData/locusTagtoGeneName.csv" # Optional tag to gene name mapping file. Set to False if not provided
 initial_sep: ","
 Rlib: "Rlib" # Some R packages will be installed here due to version conflicts
@@ -60,8 +60,10 @@ housekeeping: ""
 # GOTerm databases are automatically built via downloading terms from UniProt. Therefore, you need to specify a taxID.
 # Since you can use the database for multiple Runs  specify a directory where to store the Database and files.
 GOTermDir: "GOTerms2"
-tax_id: 11117
-genus: "Synechocystis"
+# NCBI Taxonomy ID for your organism. Look it up at https://www.ncbi.nlm.nih.gov/taxonomy
+tax_id: 103690
+# Genus and species are used to construct a unique organism identifier and to build the OrgDB annotation package
+genus: "Nostoc"
 species: "sp"
 
 # GOEnrichment Settings
@@ -75,8 +77,8 @@ maxGSSize: 500
 
 # KEGGEnrichment Settings - mainly uses GO settings
 
-# organism ID from KEGG DB
-keggOrgID: "syn"
+# Organism ID from the KEGG database. Find yours at https://www.genome.jp/kegg/catalog/org_list.html
+keggOrgID: "ana"
 
 
 # Setting for GO Term enrichment reduction. Will remove redundant GO Terms via Calculating their Semantic Similarity and
@@ -101,7 +103,9 @@ ascending: True
 # upcolor downcolor and normalcolor are the colors used in the volcano plot
 # you can use every HTML color you like.
 
-highlight: {"ribosomal proteins": ["black", "rpl|rps"], "ncRNA/sRNA": ["blue", "ncr|ncl"], "tRNA": ["purple", "6803t"] }
+# Regex patterns in highlight are organism-specific. Adjust them to match gene naming conventions
+# of your organism (e.g. "6803t" for Synechocystis PCC6803 tRNAs, "7120t" for Nostoc PCC7120 tRNAs).
+highlight: {"ribosomal proteins": ["black", "rpl|rps"], "ncRNA/sRNA": ["blue", "ncr|ncl"], "tRNA": ["purple", "7120t"] }
 upColor: "rgb(255,0,0)"
 downColor: "rgb(255,0,0)" # "rgb(255,165,0)"
 normalColor: "rgb(255,0,0)" # "rgb(199,199,199)"

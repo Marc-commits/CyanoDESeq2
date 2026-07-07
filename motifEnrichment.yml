@@ -1,7 +1,7 @@
 
 RUN_DIR: "MotifEnrichment/singleLevelRunOnlyUTR"
 
-Fasta: "initialData/Synechocystis.fasta"
+Fasta: "initialData/Nostocsp.fasta"  # Genome FASTA file; must match the organism configured in your DESeq config
 
 multilevel: False
 

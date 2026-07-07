@@ -35,6 +35,10 @@ rule transmembraneEnrichment:
         "../Rscripts/checkTransmembrane.R"
 
 
+# NOTE: The two rules below (downloadSynProteinDistribution, convertSynProteinDistribution) are
+# specific to Synechocystis sp. PCC6803. They download supplementary proteomics data from
+# Qian et al. 2023 (doi:10.1021/acs.jproteome.2c00759). If you are working with a different
+# organism you must supply your own proteomics data files and adapt these rules accordingly.
 rule downloadSynProteinDistribution:
     output:
         soluble = os.path.join(config["GOTermDir"], "SolubleProteins.xlsx") ,

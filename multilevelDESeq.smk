@@ -81,5 +81,3 @@ rule all:
         first=rules.first_all.input,
         second=rules.second_all.input,
         overlap = expand(rules.plotOverlap.output, zip, condition=config["primary"]["conditions"], baseline=config["primary"]["baselines"])
-
-

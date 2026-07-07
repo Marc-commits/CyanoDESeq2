@@ -68,4 +68,3 @@ rule all:
     default_target: True
     input:
         file = rules.runRAPDOR.output
-

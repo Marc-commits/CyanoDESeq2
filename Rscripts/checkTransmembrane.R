@@ -26,4 +26,3 @@ res <- enricher(
 )
 summary <- data.frame(res )
 write.table(summary , file = snakemake@output[["up"]], row.names=FALSE, sep="\t")
-

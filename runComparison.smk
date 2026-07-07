@@ -65,5 +65,3 @@ rule all:
     default_target: True
     input:
         file = expand(rules.compareRuns.output.html, zip, condition=config["primary"]["run"]["conditions"], baseline=config["primary"]["run"]["baselines"])
-
-
