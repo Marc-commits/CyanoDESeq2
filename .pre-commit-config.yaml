@@ -79,7 +79,7 @@ repos:
 
   # rev pinned to Marc-commits/pre-commit-hooks tag v0.1.0
   - repo: https://github.com/Marc-commits/pre-commit-hooks
-    rev: v0.1.0
+    rev: v0.3.0
     hooks:
       - id: r-metadata
         exclude: ^$
