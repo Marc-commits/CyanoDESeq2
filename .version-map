@@ -1,0 +1,1 @@
+.envrc:21:echo 'grep -riHn version: > .version-map'
