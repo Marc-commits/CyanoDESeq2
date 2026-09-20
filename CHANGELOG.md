@@ -6,6 +6,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- Added .github/workflows/pre-commit.yml: runs `uvx pre-commit run
+  --all-files` on `runs-on: self-hosted` for every pull request.
+
 ### Changed
 
 - Generalized the workflow from being hardcoded to *Synechocystis* sp.
