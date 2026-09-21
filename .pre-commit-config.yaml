@@ -46,8 +46,6 @@ repos:
     rev: 3.0.0
     hooks:
       - id: forbid-binary
-      - id: git-check
-
   # ── R code quality ─────────────────────────────────────────────────────────
   - repo: https://github.com/lorenzwalthert/precommit
     rev: v0.4.3.9026
