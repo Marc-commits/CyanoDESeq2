@@ -29,6 +29,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   `installClusterProfiler.R`, `keggEnrichment.R`) — no functional changes.
 - Removed trailing empty-value tabs from the
   `testdata/ensgene_to_uniprot.tsv` test fixture.
+- Rulegraph regeneration moved from `.envrc` into a new justfile recipe
+  `just chore`; direnv no longer rewrites `rulegraph.svg` on `cd`.
 
 ### Fixed
 
