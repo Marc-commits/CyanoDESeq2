@@ -3,4 +3,6 @@
 # example_config.yml is required: rules/setup.smk reads config["RUN_DIR"] at
 # module scope, so parsing fails without a configfile even for --rulegraph.
 chore:
-    PYTHONHASHSEED=0 snakemake --rulegraph --forceall -s snakefile.smk --configfile example_config.yml 2>/dev/null | dot -Tsvg >rulegraph.svg
+    #!/usr/bin/env bash
+    set -euo pipefail
+    PYTHONHASHSEED=0 snakemake --rulegraph --forceall -s snakefile.smk --configfile example_config.yml | dot -Tsvg >rulegraph.svg

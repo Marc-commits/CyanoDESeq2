@@ -37,3 +37,4 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Removed stray trailing blank lines / missing final newlines in
   `multilevelDESeq.smk`, `runComparison.smk`, `runRAPDOR.smk`,
   `rules/leastSig.smk`, and `example_layout.py`.
+- justfile rulegraph recipes no longer discard snakemake stderr and now fail on pipeline errors (`pipefail`), so an unwritable or failed rulegraph is reported.
